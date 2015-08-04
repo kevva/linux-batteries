@@ -14,6 +14,11 @@ module.exports = function (cb) {
 			return /battery_[^]+$/.exec(el)[0];
 		});
 
+		if (!stdout || !stdout.length) {
+			cb(new Error('No battery found'));
+			return;
+		}
+
 		cb(null, stdout);
 	});
 };
