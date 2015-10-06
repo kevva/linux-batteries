@@ -1,13 +1,10 @@
 'use strict';
 var execFile = require('child_process').execFile;
+var pify = require('pify');
+var Promise = require('pinkie-promise');
 
-module.exports = function (cb) {
-	execFile('upower', ['-e'], function (err, stdout) {
-		if (err) {
-			cb(err);
-			return;
-		}
-
+module.exports = function () {
+	return pify(execFile, Promise)('upower', ['-e']).then(function (stdout) {
 		stdout = stdout.trim().split('\n').filter(function (el) {
 			return /battery_[^]+$/.test(el);
 		}).map(function (el) {
@@ -15,10 +12,9 @@ module.exports = function (cb) {
 		});
 
 		if (!stdout || !stdout.length) {
-			cb(new Error('No battery found'));
-			return;
+			return Promise.reject(new Error('No battery found'));
 		}
 
-		cb(null, stdout);
+		return stdout;
 	});
 };

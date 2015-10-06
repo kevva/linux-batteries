@@ -4,10 +4,9 @@ var linuxBatteries = require('./');
 
 if (!process.env.CI) {
 	test(function (t) {
-		t.plan(3);
+		t.plan(2);
 
-		linuxBatteries(function (err, batteries) {
-			t.assert(!err, err);
+		linuxBatteries().then(function (batteries) {
 			t.assert(batteries.length, batteries);
 			t.assert(/^battery_[^]+$/.test(batteries[0]));
 		});
