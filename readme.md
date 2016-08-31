@@ -24,4 +24,4 @@ linuxBatteries().then(batteries => {
 
 ## License
 
-MIT © [Kevin Martensson](http://github.com/kevva)
+MIT © [Kevin Martensson](https://github.com/kevva)

@@ -10,7 +10,7 @@
     "url": "github.com/kevva"
   },
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=4"
   },
   "scripts": {
     "test": "xo && ava"
@@ -26,16 +26,13 @@
     "system"
   ],
   "dependencies": {
-    "pify": "^2.2.0",
-    "pinkie-promise": "^1.0.0"
+    "execa": "^0.4.0"
   },
   "devDependencies": {
     "ava": "*",
     "xo": "*"
   },
   "xo": {
-    "ignores": [
-      "test.js"
-    ]
+    "esnext": true
   }
 }
