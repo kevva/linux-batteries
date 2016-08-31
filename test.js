@@ -1,13 +1,11 @@
 import test from 'ava';
-import fn from './';
+import m from './';
 
 if (!process.env.CI) {
 	test(async t => {
-		t.plan(2);
+		const batteries = await m();
 
-		const batteries = await fn();
-
-		t.ok(batteries.length);
-		t.regexTest(/^battery_[^]+$/, batteries[0]);
+		t.truthy(batteries.length);
+		t.regex(/^battery_[^]+$/, batteries[0]);
 	});
 }
