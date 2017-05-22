@@ -17,7 +17,7 @@ const linuxBatteries = require('linux-batteries');
 
 linuxBatteries().then(batteries => {
 	console.log(batteries);
-	//=> ['battery_BAT0']
+	//=> ['BAT0']
 });
 ```
 

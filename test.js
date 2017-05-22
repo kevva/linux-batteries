@@ -10,5 +10,5 @@ test(async t => {
 	const batteries = await m();
 
 	t.truthy(batteries.length);
-	t.regex(/^battery_[^]+$/, batteries[0]);
+	t.is(typeof batteries[0], 'string');
 });
