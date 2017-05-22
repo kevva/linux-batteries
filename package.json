@@ -1,6 +1,6 @@
 {
   "name": "linux-batteries",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "description": "List batteries on Linux",
   "license": "MIT",
   "repository": "kevva/linux-batteries",
